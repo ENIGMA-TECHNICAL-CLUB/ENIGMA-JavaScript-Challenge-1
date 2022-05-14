@@ -155,7 +155,7 @@ function checkWinner() {
     showWinner(boxes[2].innerText);
     return;
   } else if (movesLeft.innerText == 0 && winner.innerText.length == 0) {
-    console.log("draw");
+     isGameOver = true;
     winner.style.display = "block";
     winner.innerText = "Game is Draw";
     return;

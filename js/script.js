@@ -155,7 +155,7 @@ function checkWinner() {
     showWinner(boxes[2].innerText);
     return;
   } else if (movesLeft.innerText == 0 && winner.innerText.length == 0) {
-     isGameOver = true;
+    console.log("draw");
     winner.style.display = "block";
     winner.innerText = "Game is Draw";
     return;
@@ -165,10 +165,17 @@ function checkWinner() {
 // announce winner
 function showWinner(player) {
   // update game finish state
-  isGameOver = true;
-  console.log(gameState);
   winner.style.display = "block";
   winner.innerText = `Player ${player} is Winner`;
+  isGameOver = true;
+  disableGameBoard();
+}
+
+// Disable all button when game is over
+function disableGameBoard() {
+  boxes.forEach((box) => {
+    box.disabled = true;
+  });
 }
 // REPLAY-MODE :: replay-game-button-clicked->fetches events recorded->apply event->generates new game state->render game state
 // Repay Only when game is finish
